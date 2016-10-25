@@ -1,0 +1,9 @@
+clear;
+clc;
+
+load german.txt;
+x=german(:,1:24);
+K=2;
+y=K_Medoids(x,K);
+
+load 
