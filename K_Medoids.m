@@ -57,6 +57,7 @@ end
 %%
 %以S为中心，把R中的点进行聚类
   S=S(find(f==min(f)),:);
+  S=S(1,:);                 %当有多个最小时，取其中一个就行
   R=1:row_x;
   R(S)=[];
   dist=Dist(S,R);   %dist=pdist2(x(S,:),x(R,:),'cityblock');
