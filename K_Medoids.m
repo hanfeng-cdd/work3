@@ -1,17 +1,18 @@
 %%  
-%K-Medoids算法
+%K-Medoids算法   180s(包括距离矩阵90s计算)
 function label_x=K_Medoids(x,K,random_num)
 
 [row_x,column_x]=size(x);
-r=floor(K*(row_x-K)/10);%每次随机尝试总共点对的10分之一
+%r=floor(K*(row_x-K)/10);%每次随机尝试总共点对的10分之一
+r=500;
 lamda=0.1;%迭代终止条件：平均目标函数改善值小于lamda
 %random_num=10;%因为算法是局部最优值，所以要多次随机
 Dist=pdist2(x,x,'cityblock');     %把Dist矩阵先算出来，预先存好,time= 95.4811
 label_x=zeros(row_x,1);
 S=zeros(random_num,K);
 f=zeros(random_num,1);
-tic;
-time=0;
+%tic;
+%time=0;
 for k=1:random_num 
     sprintf(['the','   ',num2str(k),'  ','intenation'])
 %第一步初始化k个中心点
@@ -50,9 +51,9 @@ for k=1:random_num
      dist=Dist(S(k,:),R);  %    dist=pdist2(x(S,:),x(R,:),'cityblock');
      f(k)=sum(min(dist));
      sprintf(['f(k)=',num2str(f(k))])
-     time1=time;
-     time=toc;
-     time_every=time-time1
+ %    time1=time;
+ %    time=toc;
+  %   time_every=time-time1
 end
 %%
 %以S为中心，把R中的点进行聚类
@@ -66,8 +67,8 @@ end
  for i=1:K
     label_x(R(index==i))=i;
  end
- disp('the totle time is:   ');
- totle_time=toc
+ %disp('the totle time is:   ');
+% totle_time=toc
 end
 
 
