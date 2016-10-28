@@ -1,4 +1,6 @@
 function label_x=spectral_clustering(x,K,k,rand_num_K_Medoids)
+%自己的时间总共：400s
+
 %%生成k近邻的图,加上权重，用的欧式距离
 dist=pdist2(x,x, 'euclidean');
 [row_x,column_x]=size(x);

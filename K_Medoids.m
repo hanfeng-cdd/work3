@@ -1,5 +1,5 @@
 %%  
-%K-Medoids算法   180s(包括距离矩阵90s计算)
+%K-Medoids算法   自己的时间：410s(包括距离矩阵90s计算)
 function label_x=K_Medoids(x,K,random_num)
 
 [row_x,column_x]=size(x);
